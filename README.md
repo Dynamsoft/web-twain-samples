@@ -1,6 +1,6 @@
 # web-twain-samples
 
-A curated list of Dynamic Web TWAIN samples scattered in various places: installers, GitHub and websites.
+A curated list of [Dynamic Web TWAIN](https://www.dynamsoft.com/web-twain/overview) samples scattered in various places: installers, GitHub and websites.
 
 ## Basic
 
