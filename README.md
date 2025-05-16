@@ -75,3 +75,12 @@ Blog posts by the marketing team. Every blog has its sample code available on Gi
 * [Text Recognition (OCR)](https://www.dynamsoft.com/codepool/ocr-scanned-documents-tesseract.html)
 * [Large Language Model (ChatGPT) Integration](https://www.dynamsoft.com/codepool/chatgpt-scanned-documents.html)
 
+### REST API
+
+Dynamic Web TWAIN's REST API extends its document scanning ability to other programming languages.
+
+* [.NET](https://www.dynamsoft.com/codepool/dotnet-twain-wia-sane-document-scanner.html)
+* [Java](https://www.dynamsoft.com/codepool/java-twain-document-scanning.html)
+* [Node.js](https://www.dynamsoft.com/codepool/rest-api-node-document-scanning.html)
+* [Flutter](https://www.dynamsoft.com/codepool/flutter-twain-scanner-digitize-document.html)
+* [Python](https://www.dynamsoft.com/codepool/python-twain-wia-sane-document-scanner.html)
