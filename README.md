@@ -64,7 +64,7 @@ Blog posts by the marketing team. Every blog has its sample code available on Gi
 * [Scan to TIFF](https://www.dynamsoft.com/codepool/scan-documents-to-tiff-from-browsers.html)
 * [Size Optimization](https://www.dynamsoft.com/codepool/size-optimization-of-scanned-document.html)
 
-### TWAIN Capablities
+### TWAIN Capabilities
 
 * [Document Separation with PatchCode and Barcode](https://www.dynamsoft.com/codepool/batch-document-scanning-patch-code-separation.html)
 * [Document Orientation Detection](https://www.dynamsoft.com/codepool/correct-document-image-orientation-with-javascript.html)
