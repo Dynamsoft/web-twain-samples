@@ -44,7 +44,7 @@ These demos illustrate some use cases.
 
 ## Blogs
 
-Blog posts by the marketing team. Every blog has its sample code available on GitHub.
+Every blog has its sample code available on GitHub.
 
 ### Integration to Various Platforms and Frameworks
 
