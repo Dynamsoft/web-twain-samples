@@ -24,10 +24,10 @@ These demos can adjust the settings of the scanning, capture images with webcams
 
 These demos illustrate how to upload scanned documents to a server.
 
-* [Upload to ASP.NET](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1220)
-* [Upload to JSP](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1221)
-* [Upload to Node.js](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1222)
-* [Upload to PHP](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1223)
+* [Upload with ASP.NET](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1220)
+* [Upload with JSP](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1221)
+* [Upload with Node.js](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1222)
+* [Upload with PHP](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=1223)
 
 ## Use Cases
 
