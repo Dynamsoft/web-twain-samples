@@ -69,8 +69,9 @@ Every blog has its sample code available on GitHub.
 * [Document Separation with PatchCode and Barcode](https://www.dynamsoft.com/codepool/batch-document-scanning-patch-code-separation.html)
 * [Document Orientation Detection](https://www.dynamsoft.com/codepool/correct-document-image-orientation-with-javascript.html)
 
-### Extended Features
+### Use Cases
 
+* [How to Add PDF Annotations to Scanned Documents with JavaScript](https://www.dynamsoft.com/codepool/pdf-annotations-scanned-document-javascript.html)
 * [Scan Documents and Read the MRZ Text and Barcodes](https://www.dynamsoft.com/codepool/id-card-flatbed-scanner-web-app.html)
 * [Text Recognition (OCR)](https://www.dynamsoft.com/codepool/ocr-scanned-documents-tesseract.html)
 * [Large Language Model (ChatGPT) Integration](https://www.dynamsoft.com/codepool/chatgpt-scanned-documents.html)
