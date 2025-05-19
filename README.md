@@ -56,6 +56,7 @@ Every blog has its sample code available on GitHub.
 * [Tauri](https://www.dynamsoft.com/codepool/tauri-document-scanning-desktop-app.html)
 * [Electron](https://www.dynamsoft.com/codepool/electron-cross-platform-document-scanning-management.html)
 * [Next.js](https://www.dynamsoft.com/codepool/nextjs-document-scanner.html)
+* [Nuxt.js](https://www.dynamsoft.com/codepool/nuxtjs-document-scanner.html)
 * [PHP Laravel](https://www.dynamsoft.com/codepool/scan-upload-document-image-laravel-php.html)
 
 ### Output Formats
