@@ -81,7 +81,7 @@ Every blog has its sample code available on GitHub.
 
 Dynamic Web TWAIN's REST API extends its document scanning ability to other programming languages.
 
-* [.NET](https://www.dynamsoft.com/codepool/dotnet-twain-wia-sane-document-scanner.html)
+* [.NET](https://github.com/Dynamsoft/Dynamic-Web-TWAIN-REST-dotnet/)
 * [Java](https://www.dynamsoft.com/codepool/java-twain-document-scanning.html)
 * [Node.js](https://www.dynamsoft.com/codepool/rest-api-node-document-scanning.html)
 * [Flutter](https://www.dynamsoft.com/codepool/flutter-twain-scanner-digitize-document.html)
