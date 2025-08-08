@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
     <script src="Resources/dynamsoft.webtwain.config.js"></script>
     <script src="Resources/dynamsoft.webtwain.initiate.js"></script>
@@ -13,8 +16,8 @@
     <div id="dwtcontrolContainer" style="width: 350px; height: 380px;"></div>
     <script type="text/javascript">
         var DWRemoteScanObject, allServices, allDevices;
-        Dynamsoft.DWT.ProductKey = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9";
         var serverurl = 'http://demo.scannerproxy.com/'; // A public proxy server provided by Dynamsoft. You can also change to your own proxy server.
+        Dynamsoft.DWT.ProductKey = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"; // Public trial license which is valid for 24 hours
 
         Dynamsoft.DWT.CreateRemoteScanObjectAsync(serverurl)
             .then(function (rsObject) {
