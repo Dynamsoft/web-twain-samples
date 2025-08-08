@@ -38,6 +38,13 @@ These demos illustrate some use cases.
 * [Scan Documents with MRZ](https://www.dynamsoft.com/web-twain/docs/indepth/development/mrz.html)
 * [Sort Images with Tags](https://www.dynamsoft.com/web-twain/resources/code-gallery/?SampleID=226)
 
+## Remote Scan
+
+These demos illustrate how to scan documents through other devices connected to scanners, which makes it possible to scan documents on mobile devices.
+
+* [Hello world demo storing images on the remote service](/remote-scan/helloworld.html)
+* [Hello world demo storing images on the client with Dynamsoft Document Viewer](/remote-scan/with-document-viewer.html)
+
 ## Other
 
 * [Code Lab](https://github.com/Dynamsoft/web-twain-codelab/). Various samples demonstrating how to customize the document scanning. It is a collection of code snippets.
