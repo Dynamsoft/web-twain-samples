@@ -14,7 +14,7 @@
 <body>
     <div>SelectService:<select size="1" id="selServices" style="position: relative; width: 240px;" onchange="onServiceSelected();"></select></div>
     <div>SelectSource:<select size="1" id="selDevices" style="position: relative; width: 240px;"></select></div>
-    <div><input type="button" value="Scan" onclick="AcquireImage();" /></div>
+    <div><button onclick="AcquireImage();">Scan</button></div>
     <div id="container" style="width: 100%; height: 80vh;"></div>
     <script type="text/javascript">
         var DWRemoteScanObject, allServices, allDevices;
