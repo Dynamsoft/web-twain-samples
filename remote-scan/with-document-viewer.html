@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World with Document Viewer</title>
+    <script src="Resources/dynamsoft.webtwain.config.js"></script>
+    <script src="Resources/dynamsoft.webtwain.initiate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/ddv.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/ddv.css">
+</head>
+
+<body>
+    <div>SelectService:<select size="1" id="selServices" style="position: relative; width: 240px;" onchange="onServiceSelected();"></select></div>
+    <div>SelectSource:<select size="1" id="selDevices" style="position: relative; width: 240px;"></select></div>
+    <div><button onclick="AcquireImage();">Scan</button></div>
+    <div id="container" style="width: 100%; height: 80vh;"></div>
+    <script type="text/javascript">
+        var DWRemoteScanObject, allServices, allDevices;
+        var serverurl = 'http://demo.scannerproxy.com/'; // A public proxy server provided by Dynamsoft. You can also change to your own proxy server.
+        var editViewer;
+        var doc;
+        Dynamsoft.DWT.ProductKey = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"; // Public trial license which is valid for 24 hours
+        initDDV();
+        Dynamsoft.DWT.CreateRemoteScanObjectAsync(serverurl)
+            .then(function (rsObject) {
+                DWRemoteScanObject = rsObject;
+                DWRemoteScanObject.registerEvent("onPostTransferAsync", async function (outputInfo) {
+                    console.log("The image ID is " + outputInfo.imageId);
+                    let blob = await DWRemoteScanObject.getImages([0],Dynamsoft.DWT.EnumDWT_ImageType.IT_JPG,Dynamsoft.DWT.EnumDWT_ImageFormatType.Blob);
+                    await DWRemoteScanObject.removeImages([0]);
+                    doc.loadSource(blob);
+                });
+                return DWRemoteScanObject.getServices();
+            })
+            .then(function (services) {
+                allServices = services;
+                var ddlService = document.getElementById("selServices");
+                if (ddlService) {
+                    ddlService.options.length = 0;
+                    ddlService.options.add(new Option("--select a service--", "-1"));
+                    for (var i = 0; i < services.length; i++) {
+                        var serverInfo = services[i];
+                        if (serverInfo.attrs.name.length > 0)
+                            ddlService.options.add(new Option(serverInfo.attrs.name, i));
+                        else ddlService.options.add(new Option(serverInfo.attrs.UUID, i));
+                    }
+                    ddlService.selectedIndex = 0;
+                }
+            })
+            .catch(function (exp) {
+                console.error(exp);
+            });
+
+        async function initDDV(){
+            Dynamsoft.DDV.Core.license = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"; // Public trial license which is valid for 24 hours
+            Dynamsoft.DDV.Core.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-document-viewer@latest/dist/engine";// Lead to a folder containing the distributed WASM files
+            await Dynamsoft.DDV.Core.loadWasm();
+            await Dynamsoft.DDV.Core.init(); 
+            editViewer = new Dynamsoft.DDV.EditViewer({
+                container: "container"
+            });
+            doc = Dynamsoft.DDV.documentManager.createDocument();
+            editViewer.openDocument(doc.uid);
+        }
+
+        function onServiceSelected() {
+            var ddlService = document.getElementById("selServices");
+            if (ddlService.selectedIndex >= 0 && allServices && allServices.length > 0) {
+                var devicetype =
+                    Dynamsoft.DWT.EnumDWT_DeviceType.TWAINSCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.WIASCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.TWAINX64SCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.ICASCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.SANESCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.ESCLSCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.WIFIDIRECTSCANNER;
+                DWRemoteScanObject.getDevices({
+                    serviceInfo: allServices[ddlService.selectedIndex - 1],
+                    deviceType: devicetype,
+                })
+                .then(function (devices) {
+                    allDevices = devices;
+                    var ddlDevice = document.getElementById("selDevices");
+                    if (ddlDevice) {
+                        ddlDevice.options.length = 0;
+                        ddlDevice.options.add(new Option("--select a device--", "-1"));
+                        for (var i = 0; i < devices.length; i++) {
+                            var device = devices[i];
+                            if (device.displayName.length > 0)
+                                ddlDevice.options.add(new Option(device.displayName, i));
+                            else ddlDevice.options.add(new Option(device.name, i));
+                        }
+                        ddlDevice.selectedIndex = 0;
+                    }
+                })
+                .catch(function (exp) {
+                    console.error(exp);
+                });
+            }
+        }
+
+        function AcquireImage() {
+            if (DWRemoteScanObject) {
+                var selDevices = document.getElementById("selDevices");
+                if (selDevices) {
+                    if (selDevices.selectedIndex - 1 >= 0) {
+                        DWRemoteScanObject.acquireImage(
+                            allDevices[selDevices.selectedIndex - 1],
+                            {
+                                IfCloseSourceAfterAcquire: true, // Scanner source will be closed automatically after the scan.
+                            }
+                        ).catch(function (exp) {
+                            alert(exp.message);
+                        });
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="Resources/dynamsoft.webtwain.config.js"></script>
+    <script src="Resources/dynamsoft.webtwain.initiate.js"></script>
+</head>
+
+<body>
+    <div>SelectService:<select size="1" id="selServices" style="position: relative; width: 240px;" onchange="onServiceSelected();"></select></div>
+    <div>SelectSource:<select size="1" id="selDevices" style="position: relative; width: 240px;"></select></div>
+    <div><button onclick="AcquireImage();">Scan</button></div>
+    <div id="dwtcontrolContainer" style="width: 350px; height: 380px;"></div>
+    <script type="text/javascript">
+        var DWRemoteScanObject, allServices, allDevices;
+        var serverurl = 'http://demo.scannerproxy.com/'; // A public proxy server provided by Dynamsoft. You can also change to your own proxy server.
+        Dynamsoft.DWT.ProductKey = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"; // Public trial license which is valid for 24 hours
+
+        Dynamsoft.DWT.CreateRemoteScanObjectAsync(serverurl)
+            .then(function (rsObject) {
+                DWRemoteScanObject = rsObject;
+
+                var element = document.getElementById("dwtcontrolContainer");
+                DWRemoteScanObject.Viewer.bind(element); // viewer bind element xxx
+                DWRemoteScanObject.Viewer.show(); // viewer show
+
+                return DWRemoteScanObject.getServices();
+            })
+            .then(function (services) {
+                allServices = services;
+                var ddlService = document.getElementById("selServices");
+                if (ddlService) {
+                    ddlService.options.length = 0;
+                    ddlService.options.add(new Option("--select a service--", "-1"));
+                    for (var i = 0; i < services.length; i++) {
+                        var serverInfo = services[i];
+                        if (serverInfo.attrs.name.length > 0)
+                            ddlService.options.add(new Option(serverInfo.attrs.name, i));
+                        else ddlService.options.add(new Option(serverInfo.attrs.UUID, i));
+                    }
+                    ddlService.selectedIndex = 0;
+                }
+            })
+            .catch(function (exp) {
+                console.error(exp);
+            });
+
+        function onServiceSelected() {
+            var ddlService = document.getElementById("selServices");
+            if (ddlService.selectedIndex >= 0 && allServices && allServices.length > 0) {
+                var devicetype =
+                    Dynamsoft.DWT.EnumDWT_DeviceType.TWAINSCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.WIASCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.TWAINX64SCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.ICASCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.SANESCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.ESCLSCANNER |
+                    Dynamsoft.DWT.EnumDWT_DeviceType.WIFIDIRECTSCANNER;
+                DWRemoteScanObject.getDevices({
+                    serviceInfo: allServices[ddlService.selectedIndex - 1],
+                    deviceType: devicetype,
+                })
+                .then(function (devices) {
+                    allDevices = devices;
+                    var ddlDevice = document.getElementById("selDevices");
+                    if (ddlDevice) {
+                        ddlDevice.options.length = 0;
+                        ddlDevice.options.add(new Option("--select a device--", "-1"));
+                        for (var i = 0; i < devices.length; i++) {
+                            var device = devices[i];
+                            if (device.displayName.length > 0)
+                                ddlDevice.options.add(new Option(device.displayName, i));
+                            else ddlDevice.options.add(new Option(device.name, i));
+                        }
+                        ddlDevice.selectedIndex = 0;
+                    }
+                })
+                .catch(function (exp) {
+                    console.error(exp);
+                });
+            }
+        }
+
+        function AcquireImage() {
+            if (DWRemoteScanObject) {
+                var selDevices = document.getElementById("selDevices");
+                if (selDevices) {
+                    if (selDevices.selectedIndex - 1 >= 0) {
+                        DWRemoteScanObject.acquireImage(
+                            allDevices[selDevices.selectedIndex - 1],
+                            {
+                                IfCloseSourceAfterAcquire: true, // Scanner source will be closed automatically after the scan.
+                            }
+                        ).catch(function (exp) {
+                            alert(exp.message);
+                        });
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
