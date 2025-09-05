@@ -17,6 +17,7 @@
     <script type="text/javascript">
         var DWRemoteScanObject, allServices, allDevices;
         var serverurl = 'http://demo.scannerproxy.com/'; // A public proxy server provided by Dynamsoft. You can also change to your own proxy server.
+        Dynamsoft.DWT.AutoLoad = false; // Disable the loading of Web TWAIN
         Dynamsoft.DWT.ProductKey = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9"; // Public trial license which is valid for 24 hours
 
         Dynamsoft.DWT.CreateRemoteScanObjectAsync(serverurl)
