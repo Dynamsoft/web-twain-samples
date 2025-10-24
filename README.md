@@ -42,8 +42,8 @@ These demos illustrate some use cases.
 
 These demos illustrate how to scan documents through other devices connected to scanners, which makes it possible to scan documents on mobile devices.
 
-* [Hello world demo storing images on the remote service](/remote-scan/helloworld.html)
-* [Hello world demo storing images on the client with Dynamsoft Document Viewer](/remote-scan/with-document-viewer.html)
+* [Hello world demo storing images on the remote service](https://github.com/Dynamsoft/web-twain-samples/blob/remote-scan/remote-scan/helloworld.html)
+* [Hello world demo storing images on the client with Dynamsoft Document Viewer](https://github.com/Dynamsoft/web-twain-samples/blob/remote-scan/remote-scan/with-document-viewer.html)
 
 ## Other
 
