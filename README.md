@@ -48,6 +48,7 @@ These demos illustrate how to scan documents through other devices connected to 
 ## Other
 
 * [Code Lab](https://github.com/Dynamsoft/web-twain-codelab/). Various samples demonstrating how to customize the document scanning. It is a collection of code snippets.
+* [Agent Skills](./skills/)
 
 ## Blogs
 
