@@ -17,7 +17,7 @@ Replace `claude` with your agent's name, like `.codex/skills/`, `.cursor/skills/
 You can also install the skill with the following command:
 
 ```bash
-npx skills add https://github.com/Dynamsoft/web-twain-samples/tree/main/skills/use-dynamic-web-twain
+npx skills add https://github.com/Dynamsoft/web-twain-samples/
 ```
 
 ## Prompt Examples
