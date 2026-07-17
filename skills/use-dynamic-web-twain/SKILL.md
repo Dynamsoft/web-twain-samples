@@ -62,7 +62,8 @@ Include the DWT script from CDN, configure, and load:
       Dynamsoft.DWT.Containers = [
         { ContainerId: "dwtcontrolContainer", Width: "380px", Height: "400px" },
       ];
-      Dynamsoft.DWT.ProductKey = "YOUR-PRODUCT-KEY";
+      Dynamsoft.DWT.ProductKey =
+        "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwNTI2NzQwMSIsIm1haW5TZXJ2ZXJVUkwiOiJodHRwczovL21kbHMuZHluYW1zb2Z0b25saW5lLmNvbS8iLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInN0YW5kYnlTZXJ2ZXJVUkwiOiJodHRwczovL3NkbHMuZHluYW1zb2Z0b25saW5lLmNvbS8iLCJjaGVja0NvZGUiOi0zMzE5NzM0NjJ9";
       Dynamsoft.DWT.ResourcesPath =
         "https://cdn.jsdelivr.net/npm/dwt/dist";
       Dynamsoft.DWT.ServiceInstallerLocation =
@@ -131,6 +132,8 @@ Include the DWT script from CDN, configure, and load:
 ```
 
 > **Note:** When using CDN, `ResourcesPath` must point to a proper CDN location (it can be where the main script is hosted), otherwise DWT's internal resource loader will fail.
+>
+> **Note:** The included `ProductKey` is a 1-day trial license. Get your own trial key from [Dynamsoft](https://www.dynamsoft.com/customer/license/trialLicense?product=dwt) for extended use.
 
 ---
 
@@ -231,7 +234,8 @@ function DWT() {
       dwtObject.current = Dynamsoft.DWT.GetWebTwain(containerId);
     });
 
-    Dynamsoft.DWT.ProductKey = "YOUR-PRODUCT-KEY";
+    Dynamsoft.DWT.ProductKey =
+      "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTEwNTI2NzQwMSIsIm1haW5TZXJ2ZXJVUkwiOiJodHRwczovL21kbHMuZHluYW1zb2Z0b25saW5lLmNvbS8iLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInN0YW5kYnlTZXJ2ZXJVUkwiOiJodHRwczovL3NkbHMuZHluYW1zb2Z0b25saW5lLmNvbS8iLCJjaGVja0NvZGUiOi0zMzE5NzM0NjJ9";
     Dynamsoft.DWT.ResourcesPath = "/dwt-resources";
     Dynamsoft.DWT.Containers = [
       {
@@ -333,7 +337,7 @@ These properties must be set **before** calling `Dynamsoft.DWT.Load()`:
 
 | Property | Required | Description |
 | --- | --- | --- |
-| `ProductKey` | Yes | Trial or full license key from Dynamsoft |
+| `ProductKey` | Yes | A 1-day trial license key is included by default. Replace with your own trial or full license key from [Dynamsoft](https://www.dynamsoft.com/customer/license/trialLicense?product=dwt) for production use. |
 | `ResourcesPath` | Yes | Path to DWT static resources (.js, .css, .wasm files) |
 | `Containers` | Yes | Array of container configs: `{ WebTwainId?, ContainerId?, Width?, Height? }` |
 | `AutoLoad` | No | Set to `false` for manual loading (recommended in frameworks) |
