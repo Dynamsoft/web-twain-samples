@@ -17,8 +17,8 @@ These demos can adjust the settings of the scanning, capture images with webcams
 
 * [Plain JavaScript](https://demo.dynamsoft.com/web-twain/)
 * [Vue](https://github.com/Dynamsoft/web-twain-vue-advanced)
-* [React](https://github.com/Dynamsoft/dwt-react-advanced)
-* [Angular](https://github.com/Dynamsoft/dwt-angular-advanced)
+* [React](https://github.com/Dynamsoft/web-twain-react-advanced)
+* [Angular](https://github.com/Dynamsoft/web-twain-angular-advanced)
 
 ## Upload
 
@@ -45,9 +45,19 @@ These demos illustrate how to scan documents through other devices connected to 
 * [Hello world demo storing images on the remote service](https://github.com/Dynamsoft/web-twain-samples/blob/remote-scan/remote-scan/helloworld.html)
 * [Hello world demo storing images on the client with Dynamsoft Document Viewer](https://github.com/Dynamsoft/web-twain-samples/blob/remote-scan/remote-scan/with-document-viewer.html)
 
+## Code Lab
+
+The [Code Lab](https://github.com/Dynamsoft/web-twain-codelab/) is a collection of runnable single-page samples, each showing how to use or customize one Dynamic Web TWAIN feature.
+
+* [Scan](https://github.com/Dynamsoft/web-twain-codelab#scan): blank page removal, single-side scanning, scanner capabilities and more
+* [UI Customization](https://github.com/Dynamsoft/web-twain-codelab#ui-customization): image viewer and editor, thumbnails, loading and progress bars
+* [Classification](https://github.com/Dynamsoft/web-twain-codelab#classification): organize scanned images by document or by tag
+* [Input Options](https://github.com/Dynamsoft/web-twain-codelab#input-options): load images from a local drive or an HTTP server
+* [Output Options](https://github.com/Dynamsoft/web-twain-codelab#output-options): convert to Base64 or Blob, save locally, upload to a server
+* [Misc](https://github.com/Dynamsoft/web-twain-codelab#misc): image editing, LocalStorage
+
 ## Other
 
-* [Code Lab](https://github.com/Dynamsoft/web-twain-codelab/). Various samples demonstrating how to customize the document scanning. It is a collection of code snippets.
 * [Agent Skills](./skills/)
 
 ## Blogs
@@ -75,7 +85,7 @@ Every blog has its sample code available on GitHub.
 
 ### TWAIN Capabilities
 
-* [Document Separation with PatchCode and Barcode](https://www.dynamsoft.com/codepool/batch-document-scanning-patch-code-separation.html)
+* [Split Documents by Barcode](https://www.dynamsoft.com/codepool/split-documents-via-barcode.html)
 * [Document Orientation Detection](https://www.dynamsoft.com/codepool/correct-document-image-orientation-with-javascript.html)
 
 ### Use Cases
